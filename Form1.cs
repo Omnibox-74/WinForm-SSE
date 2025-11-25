@@ -93,6 +93,19 @@ namespace WinForm_SSE_Capture
                 //rtbCounterUpdates.Append(text);
         }
 
+        public void WriteSSEeventsMemoSafe(string text)
+        {
+            if (rtbSSEevents.InvokeRequired)
+            {
+                // Call this method to sefely update the WinForm Memo that contains the actual SSE Event message that was recived.
+                Action safeWrite = delegate { WriteSSEeventsMemoSafe($"{text}"); };
+                rtbSSEevents.Invoke(safeWrite);
+            }
+            else
+                rtbSSEevents.AppendText(text + '\n');
+            //rtbCounterUpdates.Append(text);
+        }
+
 
         async Task SSElistenAsync()
         {
@@ -116,6 +129,12 @@ namespace WinForm_SSE_Capture
                             while ((!streamReader.EndOfStream) && (listen == true))
                             {
                                 var message = await streamReader.ReadLineAsync();
+
+                                //output the actual recieved message from the SSE - check we are gettign the right stuff!
+                                // show in the Rich Text Box: SSE Events
+                                var SSEeventsMemo = new System.Threading.ThreadStart(delegate { WriteSSEeventsMemoSafe(message); });
+                                var threadSSEeventsMemo = new System.Threading.Thread(SSEeventsMemo);
+                                threadSSEeventsMemo.Start();
 
                                 int oldAttacksValue = attacksToday;
 

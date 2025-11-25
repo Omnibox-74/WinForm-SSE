@@ -33,7 +33,7 @@
             this.cboxAddMultiAttack = new System.Windows.Forms.CheckBox();
             this.rtbCounterUpdates = new System.Windows.Forms.RichTextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
+            this.rtbSSEevents = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.richTextBox2 = new System.Windows.Forms.RichTextBox();
@@ -73,33 +73,39 @@
             // 
             // rtbCounterUpdates
             // 
-            this.rtbCounterUpdates.Location = new System.Drawing.Point(12, 354);
+            this.rtbCounterUpdates.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.rtbCounterUpdates.Location = new System.Drawing.Point(12, 589);
             this.rtbCounterUpdates.Name = "rtbCounterUpdates";
-            this.rtbCounterUpdates.Size = new System.Drawing.Size(251, 133);
+            this.rtbCounterUpdates.Size = new System.Drawing.Size(514, 133);
             this.rtbCounterUpdates.TabIndex = 3;
             this.rtbCounterUpdates.Text = "";
             // 
             // label1
             // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(12, 338);
+            this.label1.Location = new System.Drawing.Point(18, 573);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(122, 13);
             this.label1.TabIndex = 4;
             this.label1.Text = "Main Attack Count Sync";
             // 
-            // richTextBox1
+            // rtbSSEevents
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(12, 232);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(518, 88);
-            this.richTextBox1.TabIndex = 5;
-            this.richTextBox1.Text = "";
+            this.rtbSSEevents.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.rtbSSEevents.Location = new System.Drawing.Point(12, 232);
+            this.rtbSSEevents.Name = "rtbSSEevents";
+            this.rtbSSEevents.Size = new System.Drawing.Size(992, 324);
+            this.rtbSSEevents.TabIndex = 5;
+            this.rtbSSEevents.Text = "";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 216);
+            this.label2.Location = new System.Drawing.Point(18, 216);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 13);
             this.label2.TabIndex = 6;
@@ -107,8 +113,10 @@
             // 
             // label3
             // 
+            this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(276, 338);
+            this.label3.Location = new System.Drawing.Point(552, 573);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(165, 13);
             this.label3.TabIndex = 7;
@@ -116,9 +124,11 @@
             // 
             // richTextBox2
             // 
-            this.richTextBox2.Location = new System.Drawing.Point(279, 354);
+            this.richTextBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
+            this.richTextBox2.Location = new System.Drawing.Point(544, 589);
             this.richTextBox2.Name = "richTextBox2";
-            this.richTextBox2.Size = new System.Drawing.Size(251, 133);
+            this.richTextBox2.Size = new System.Drawing.Size(460, 133);
             this.richTextBox2.TabIndex = 8;
             this.richTextBox2.Text = "";
             // 
@@ -126,11 +136,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(542, 501);
+            this.ClientSize = new System.Drawing.Size(1016, 734);
             this.Controls.Add(this.richTextBox2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.rtbSSEevents);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.rtbCounterUpdates);
             this.Controls.Add(this.cboxAddMultiAttack);
@@ -150,7 +160,7 @@
         private System.Windows.Forms.CheckBox cboxAddMultiAttack;
         private System.Windows.Forms.RichTextBox rtbCounterUpdates;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.RichTextBox richTextBox1;
+        private System.Windows.Forms.RichTextBox rtbSSEevents;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox richTextBox2;

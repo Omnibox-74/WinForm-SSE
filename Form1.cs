@@ -1,4 +1,7 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -9,8 +12,6 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Newtonsoft.Json;
-using Newtonsoft.Json.Linq;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace WinForm_SSE_Capture
@@ -102,7 +103,18 @@ namespace WinForm_SSE_Capture
                 rtbSSEevents.Invoke(safeWrite);
             }
             else
+            {
+                if (rtbSSEevents.Lines.Count() > 500)
+                {
+                    List<string> lineList = rtbSSEevents.Lines.ToList();
+                    //lineList.RemoveAt(lineList.Count - 5);
+                    lineList.RemoveAt(0);
+                    rtbSSEevents.Lines = lineList.ToArray();
+                    rtbSSEevents.Refresh();
+                    //rtbSSEevents.Clear();
+                }
                 rtbSSEevents.AppendText(text + '\n');
+            }
             //rtbCounterUpdates.Append(text);
         }
 
@@ -132,6 +144,14 @@ namespace WinForm_SSE_Capture
 
                                 //output the actual recieved message from the SSE - check we are gettign the right stuff!
                                 // show in the Rich Text Box: SSE Events
+                                //if(rtbSSEevents.Lines.Count() > 10)
+                                //{
+                                //    List<string> lineList = rtbSSEevents.Lines.ToList();
+                                //    lineList.RemoveAt(lineList.Count - 5);
+                                //    rtbSSEevents.Lines = lineList.ToArray();
+                                //    rtbSSEevents.Refresh();
+                                    //rtbSSEevents.Clear();
+                                //}
                                 var SSEeventsMemo = new System.Threading.ThreadStart(delegate { WriteSSEeventsMemoSafe(message); });
                                 var threadSSEeventsMemo = new System.Threading.Thread(SSEeventsMemo);
                                 threadSSEeventsMemo.Start();

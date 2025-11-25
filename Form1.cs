@@ -144,14 +144,6 @@ namespace WinForm_SSE_Capture
 
                                 //output the actual recieved message from the SSE - check we are gettign the right stuff!
                                 // show in the Rich Text Box: SSE Events
-                                //if(rtbSSEevents.Lines.Count() > 10)
-                                //{
-                                //    List<string> lineList = rtbSSEevents.Lines.ToList();
-                                //    lineList.RemoveAt(lineList.Count - 5);
-                                //    rtbSSEevents.Lines = lineList.ToArray();
-                                //    rtbSSEevents.Refresh();
-                                    //rtbSSEevents.Clear();
-                                //}
                                 var SSEeventsMemo = new System.Threading.ThreadStart(delegate { WriteSSEeventsMemoSafe(message); });
                                 var threadSSEeventsMemo = new System.Threading.Thread(SSEeventsMemo);
                                 threadSSEeventsMemo.Start();
